@@ -24,12 +24,6 @@ def registration(request):
             MPFDO=NMPFDO.save(commit=False)
             MPFDO.username=MUFDO
             MPFDO.save()
-
-            send_mail('Registration',
-                      'Ur registration is Successfull',
-                      '2041016108.subhasreeparida@gmail.com',
-                      [MUFDO.email],
-                      fail_silently=False)
             return HttpResponse('registration is Successfull')
         
     return render(request,'registration.html',d)
@@ -39,14 +33,6 @@ def home(request):
         d={'username':username}
         return render(request,'home.html',d)
     return render(request,'home.html')
-
-
-
-
-
-
-
-
 
 def user_login(request):
     if request.method=='POST':
